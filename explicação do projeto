@@ -1,0 +1,35 @@
+# main_detalhado.py
+# Importamos funções do arquivo jogo.py
+from jogo import sortear_carta, comparar 
+
+# Mensagem de boas-vindas
+print("Bem-vindo ao Jogo de Cartas Trunfo!\n")
+
+# Sorteamos uma carta para cada jogador
+carta1 = sortear_carta()
+carta2 = sortear_carta()
+
+# Mostramos as cartas sorteadas
+print("Carta do Jogador 1:")
+for chave, valor in carta1.items():
+    print(f"  {chave.capitalize()}: {valor}")
+
+print("\nCarta do Jogador 2:")
+for chave, valor in carta2.items():
+    print(f"  {chave.capitalize()}: {valor}")
+
+# Pedimos ao jogador para escolher um atributo para comparar
+atributo = input("\nEscolha o atributo para batalhar (forca, velocidade, inteligencia): ").lower()
+
+# Validamos a escolha do atributo
+while atributo not in ["forca", "velocidade", "inteligencia"]:
+    print("Atributo inválido! Tente novamente.")
+    atributo = input("Escolha entre forca, velocidade, inteligencia: ").lower()
+
+# Comparamos as cartas usando o atributo escolhido
+resultado = comparar(carta1, carta2, atributo)
+
+# Mostramos o resultado final
+print("\nResultado da batalha:")
+print(resultado)
+

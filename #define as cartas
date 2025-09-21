@@ -1,0 +1,53 @@
+
+class Carta:
+    def __init__(self, nome, forca, velocidade, inteligencia, descricao):
+        self.nome = nome
+        self.forca = forca
+        self.velocidade = velocidade
+        self.inteligencia = inteligencia
+        self.descricao = descricao
+
+    def mostrar_informacoes(self):
+        print(f"=== Carta: {self.nome} ===")
+        print(f" Força       : {self.forca}")
+        print(f" Velocidade  : {self.velocidade}")
+        print(f" Inteligência: {self.inteligencia}")
+        print(f" Descrição   : {self.descricao}")
+        print("-" * 30)
+
+
+# Criando as cartas
+cartas = [
+    Carta(
+        "Dragão",
+        forca=95,
+        velocidade=60,
+        inteligencia=70,
+        descricao="Uma criatura lendária que cospe fogo e domina os céus."
+    ),
+    Carta(
+        "Fênix",
+        forca=80,
+        velocidade=90,
+        inteligencia=85,
+        descricao="Ave imortal que renasce das cinzas, símbolo de renovação."
+    ),
+    Carta(
+        "Unicórnio",
+        forca=70,
+        velocidade=75,
+        inteligencia=95,
+        descricao="Ser místico de pureza, dono de um chifre mágico e curativo."
+    ),
+    Carta(
+        "Ogro",
+        forca=85,
+        velocidade=40,
+        inteligencia=50,
+        descricao="Criatura gigante e forte, porém lenta e pouco inteligente."
+    ),
+]
+
+# Mostrando informações de todas as cartas
+for carta in cartas:
+    carta.mostrar_informacoes()

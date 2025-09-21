@@ -1,0 +1,51 @@
+# jogo_detalhado.py
+# Importa o módulo random para permitir sorteios aleatórios
+import random
+# Importa a lista de cartas do arquivo cartas.py
+from cartas import cartas 
+
+def sortear_carta():
+    """
+    Função para sortear uma carta aleatória da lista de cartas.
+    
+    Retorna:
+        dict: Uma carta aleatória com atributos 'nome', 'forca', 'velocidade' e 'inteligencia'.
+    """
+    cartas_sorteada = random.choice(cartas)
+    print(f"Carta sorteada: {carta_sorteada['nome']}")
+    return carta_sorteada
+
+def comparar(cart1, cart2, atributo):
+    """
+    Função que compara duas cartas com base em um atributo específico.
+    
+    Args:
+        cart1 (dict): Primeira carta.
+        cart2 (dict): Segunda carta.
+        atributo (str): Atributo a ser comparado ('forca', 'velocidade', 'inteligencia').
+    
+    Returns:
+        str: Mensagem indicando a carta vencedora ou se houve empate.
+    """
+    valor_cart1 = cart1[atributo]
+    valor_cart2 = cart2[atributo]
+
+    print(f"Comparando {atributo}: {cart1['nome']} ({valor_cart1}) x {cart2['nome']} ({valor_cart2})")
+
+    if valor_cart1 > valor_cart2:
+        return f"{cart1['nome']} venceu com {atributo} ({valor_cart1} > {valor_cart2})!"
+    elif valor_cart1 < valor_cart2:
+        return f"{cart2['nome']} venceu com {atributo} ({valor_cart2} > {valor_cart1})!"
+    else:
+        return f"Empate! Ambos têm {atributo} igual a {valor_cart1}."
+
+# Exemplo de execução
+if __name__ == "__main__":
+    carta_jogador = sortear_carta()
+    carta_computador = sortear_carta()
+    
+    # Escolhendo um atributo para comparar
+    atributo_escolhido = 'forca'
+    
+    resultado = comparar(carta_jogador, carta_computador, atributo_escolhido)
+    print(resultado)
